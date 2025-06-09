@@ -120,7 +120,7 @@ const Header = () => {
                 <div className="bg-neutral-900/95 backdrop-blur-md border-t border-neutral-800/50">
                     <nav className="container mx-auto px-6 py-4 space-y-4">
                         <NavLink
-                            to="/vn/"
+                            to="/"
                             onClick={closeMobileMenu}
                             className={({ isActive }) =>
                                 `block py-2 px-4 rounded-lg transition-all duration-200 ${
@@ -134,7 +134,7 @@ const Header = () => {
                             Início
                         </NavLink>
                         <NavLink
-                            to="vn/traducoes"
+                            to="/traducoes"
                             onClick={closeMobileMenu}
                             className={({ isActive }) =>
                                 `block py-2 px-4 rounded-lg transition-all duration-200 ${
@@ -147,7 +147,7 @@ const Header = () => {
                             Traduções
                         </NavLink>
                         <NavLink
-                            to="vn/creditos"
+                            to="/creditos"
                             onClick={closeMobileMenu}
                             className={({ isActive }) =>
                                 `block py-2 px-4 rounded-lg transition-all duration-200 ${
