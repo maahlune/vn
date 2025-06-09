@@ -9,7 +9,7 @@ const Home: React.FC = () => {
             {" "}
             {/* Hero Section */}
             <section className="relative bg-black text-white h-80 flex items-center">
-                <div className="absolute inset-0 opacity-30 bg-[url('https://sidearc.com/wp-content/uploads/2016/02/steinsgate4-e1456745446985-1088x300.jpg')] bg-cover bg-center bg-no-repeat"></div>
+                <div className="absolute inset-0 opacity-30 bg-[url('https://sidearc.com/wp-content/uploads/2016/02/steinsgate4-e1456745446985-1088x300.jpg')] bg-cover bg-top bg-no-repeat"></div>
                 <div className="container mx-auto px-4 relative z-10">
                     <div className="max-w-2xl mx-auto text-center">
                         <h2 className="text-3xl md:text-4xl font-bold mb-4 font-serif">
@@ -25,52 +25,8 @@ const Home: React.FC = () => {
                             >
                                 Ver Traduções
                             </NavLink>
-                            <NavLink
-                                to="/sobre"
-                                className="px-6 py-3 border border-white text-white rounded-lg hover:bg-white hover:text-purple-900 transition duration-300 font-medium"
-                            >
-                                Sobre o Projeto
-                            </NavLink>
                         </div>
                     </div>
-                </div>
-            </section>
-            {/* Featured Section */}{" "}
-            <section className="py-16 container mx-auto px-4">
-                <h2 className="text-3xl font-bold mb-8 text-center text-indigo-900 font-serif">
-                    Traduções em Destaque
-                </h2>{" "}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <Card
-                        title={translations[0].title}
-                        image={translations[0].image}
-                        description={translations[0].description}
-                        status={translations[0].status}
-                        translator={translations[0].translator}
-                        genres={translations[0].genres}
-                        platforms={translations[0].platforms}
-                        downloadLink={translations[0].downloadLink}
-                    />
-                    <Card
-                        title={translations[1].title}
-                        image={translations[1].image}
-                        description={translations[1].description}
-                        status={translations[1].status}
-                        translator={translations[1].translator}
-                        genres={translations[1].genres}
-                        platforms={translations[1].platforms}
-                        downloadLink={translations[1].downloadLink}
-                    />
-                    <Card
-                        title={translations[2].title}
-                        image={translations[2].image}
-                        description={translations[2].description}
-                        status={translations[2].status}
-                        translator={translations[2].translator}
-                        genres={translations[2].genres}
-                        platforms={translations[2].platforms}
-                        downloadLink={translations[2].downloadLink}
-                    />{" "}
                 </div>
             </section>
             {/* About Project Section */}
@@ -220,6 +176,44 @@ const Home: React.FC = () => {
                             </div>
                         </div>
                     </div>
+                </div>
+            </section>
+            {/* Featured Section */}{" "}
+            <section className="py-16 container mx-auto px-4">
+                <h2 className="text-3xl font-bold mb-8 text-center text-indigo-900 font-serif">
+                    Traduções em Destaque
+                </h2>{" "}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <Card
+                        title={translations[0].title}
+                        image={translations[0].image}
+                        description={translations[0].description}
+                        status={translations[0].status}
+                        translator={translations[0].translator}
+                        genres={translations[0].genres}
+                        platforms={translations[0].platforms}
+                        downloadLink={translations[0].downloadLink}
+                    />
+                    <Card
+                        title={translations[1].title}
+                        image={translations[1].image}
+                        description={translations[1].description}
+                        status={translations[1].status}
+                        translator={translations[1].translator}
+                        genres={translations[1].genres}
+                        platforms={translations[1].platforms}
+                        downloadLink={translations[1].downloadLink}
+                    />
+                    <Card
+                        title={translations[2].title}
+                        image={translations[2].image}
+                        description={translations[2].description}
+                        status={translations[2].status}
+                        translator={translations[2].translator}
+                        genres={translations[2].genres}
+                        platforms={translations[2].platforms}
+                        downloadLink={translations[2].downloadLink}
+                    />{" "}
                 </div>
             </section>
         </div>

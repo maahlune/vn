@@ -36,7 +36,7 @@ const Translations: React.FC = () => {
         <div className="min-h-screen bg-gradient-to-b from-indigo-50 to-white">
             {/* Header Section */}
             <section className="relative bg-black text-white h-80 flex items-center">
-                <div className="absolute inset-0 opacity-30 bg-[url('https://sidearc.com/wp-content/uploads/2016/02/steinsgate4-e1456745446985-1088x300.jpg')] bg-cover bg-center bg-no-repeat"></div>
+                <div className="absolute inset-0 opacity-30 bg-[url('https://sidearc.com/wp-content/uploads/2016/02/steinsgate4-e1456745446985-1088x300.jpg')] bg-cover bg-top bg-no-repeat"></div>
                 <div className="container mx-auto px-4 relative z-10">
                     <div className="max-w-4xl mx-auto text-center">
                         <h1 className="text-4xl md:text-5xl font-bold mb-4 font-serif">Traduções Disponíveis</h1>
