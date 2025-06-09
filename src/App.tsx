@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router";
+import { HashRouter as Router, Routes, Route, useLocation } from "react-router";
 import { useEffect } from "react";
 import type { ReactNode } from "react";
 import Home from "./components/Home/Home";
@@ -132,6 +132,7 @@ const App = () => {
             <Layout>
                 <Routes>
                     <Route path="/" element={<Home />} />
+                    <Route path="/vn" element={<Home />} />
                     <Route path="/traducoes" element={<Translations />} />
                 </Routes>
             </Layout>

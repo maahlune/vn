@@ -1,54 +1,29 @@
-# React + TypeScript + Vite
+# 🌙 MaahLune VN
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![Em Desenvolvimento](https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow?style=for-the-badge)](https://github.com/seu-usuario/maahlune-vn)
+[![React](https://img.shields.io/badge/React-18+-blue?style=for-the-badge&logo=react)](https://reactjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.8+-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4+-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
 
-Currently, two official plugins are available:
+> **⚠️ PROJETO EM DESENVOLVIMENTO**  
+> Este projeto ainda está em desenvolvimento ativo. Algumas funcionalidades podem estar incompletas ou sujeitas a mudanças.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Uma plataforma web moderna para centralizar e organizar traduções de Visual Novels feitas por fãs brasileiros. O MaahLune VN oferece uma interface elegante e responsiva para descobrir, explorar e acessar traduções de qualidade da comunidade brasileira.
 
-## Expanding the ESLint configuration
+## ✨ Funcionalidades
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 🎯 Já Implementadas
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+-   **🏠 Página Inicial**: Hero section atrativo com traduções em destaque
+-   **📚 Catálogo Completo**: Lista de algumas das traduções disponíveis
+-   **🔍 Sistema de Busca**: Pesquise por título, descrição ou tradutor
+-   **🏷️ Filtros**
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🛠️ Tecnologias
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+-   **Frontend Framework**: React 19+ com TypeScript
+-   **Roteamento**: React Router 7+
+-   **Estilização**: Tailwind CSS 4+
+-   **Build Tool**: Vite 6+
+-   **Ícones**: React Icons
+-   **Desenvolvimento**: ESLint + Prettier

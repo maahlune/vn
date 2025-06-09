@@ -6,7 +6,7 @@ const Header = () => {
         <header className="bg-[#fafafa] text-indigo-900 shadow-sm sticky top-0 z-50">
             <div className="container mx-auto px-4 py-4 flex flex-col md:flex-row justify-center items-center relative">
                 <NavLink
-                    to="/"
+                    to="/vn"
                     className="text-2xl md:text-3xl font-bold font-serif mb-2 md:mb-0 md:absolute md:left-8"
                 >
                     MaahLune VN
@@ -15,7 +15,7 @@ const Header = () => {
                     <ul className="flex space-x-8">
                         <li className="flex items-center">
                             <NavLink
-                                to="/"
+                                to="/vn"
                                 className={({ isActive }) =>
                                     isActive
                                         ? "border-b-2 border-purple-700 font-medium pb-1"
