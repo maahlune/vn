@@ -180,19 +180,6 @@ const Home: React.FC = () => {
                     </p>
                   </div>
                 </div>
-
-                <div className="mt-20 text-center">
-                  <NavLink
-                    to="/vn/traducoes"
-                    className="relative overflow-hidden group inline-flex items-center px-6 py-3 bg-purple-600 text-white rounded-xl hover:bg-purple-700 transition-all duration-300 font-medium shadow-lg shadow-purple-900/50"
-                  >
-                    <span className="relative z-10 flex items-center">
-                      <FaPuzzlePiece className="mr-2" />
-                      Explorar Traduções
-                    </span>
-                    <span className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                  </NavLink>
-                </div>
               </div>
             </div>
           </div>
