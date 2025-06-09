@@ -1,11 +1,11 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router";
+import { HashRouter as Router, Routes, Route, useLocation } from "react-router";
 import { useEffect } from "react";
 import type { ReactNode } from "react";
 import Home from "./components/Home/Home";
 import Header from "./components/Header/Header";
 import Translations from "./components/Translations/Translations";
 import Credits from "./components/Credits/Credits";
-import { FaDiscord, FaGithub } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 
 // ScrollToTop component ensures scroll position returns to top on page change
 const ScrollToTop = () => {
@@ -44,15 +44,16 @@ const Layout = ({ children }: LayoutProps) => {
                                 toda a comunidade.
                             </p>
                             <div className="flex space-x-4">
-                                <a
+                                {/* <a
                                     href="#"
                                     className="text-neutral-400 hover:text-purple-400 transition-colors duration-300"
                                     aria-label="Discord"
                                 >
                                     <FaDiscord size={24} />
-                                </a>
+                                </a> */}
                                 <a
-                                    href="#"
+                                    href="https://github.com/maahlune/vn"
+                                    target="_blank"
                                     className="text-neutral-400 hover:text-purple-400 transition-colors duration-300"
                                     aria-label="GitHub"
                                 >
@@ -70,7 +71,7 @@ const Layout = ({ children }: LayoutProps) => {
                             <ul className="space-y-3">
                                 <li>
                                     <a
-                                        href="/vn"
+                                        href="/vn/#/"
                                         className="text-neutral-300 hover:text-purple-400 transition-colors duration-300 flex items-center"
                                     >
                                         <span className="w-1.5 h-1.5 bg-purple-500 rounded-full mr-2"></span>
@@ -79,7 +80,7 @@ const Layout = ({ children }: LayoutProps) => {
                                 </li>
                                 <li>
                                     <a
-                                        href="/vn/traducoes"
+                                        href="/vn/#/traducoes"
                                         className="text-neutral-300 hover:text-purple-400 transition-colors duration-300 flex items-center"
                                     >
                                         <span className="w-1.5 h-1.5 bg-pink-500 rounded-full mr-2"></span>
@@ -88,20 +89,11 @@ const Layout = ({ children }: LayoutProps) => {
                                 </li>
                                 <li>
                                     <a
-                                        href="#"
+                                        href="/vn/#/creditos"
                                         className="text-neutral-300 hover:text-purple-400 transition-colors duration-300 flex items-center"
                                     >
                                         <span className="w-1.5 h-1.5 bg-purple-500 rounded-full mr-2"></span>
-                                        Como Contribuir
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        href="#"
-                                        className="text-neutral-300 hover:text-purple-400 transition-colors duration-300 flex items-center"
-                                    >
-                                        <span className="w-1.5 h-1.5 bg-pink-500 rounded-full mr-2"></span>
-                                        Contato
+                                        Créditos
                                     </a>
                                 </li>
                             </ul>
@@ -114,16 +106,17 @@ const Layout = ({ children }: LayoutProps) => {
                                 <span className="absolute left-0 bottom-0 w-12 h-0.5 bg-purple-500"></span>
                             </h3>
                             <p className="text-neutral-300 mb-6 leading-relaxed">
-                                Ajude a manter este projeto vivo e apoie o trabalho dos tradutores que dedicam seu tempo
-                                para trazer essas histórias até você.
+                                {/* Ajude a manter este projeto vivo e apoie o trabalho dos tradutores que dedicam seu tempo
+                                para trazer essas histórias até você.  */}
+                                Obrigado por considerar mas ainda não temos uma forma de receber doações.
                             </p>
-                            <a
+                            {/* <a
                                 href="#"
                                 className="relative overflow-hidden group inline-flex items-center px-6 py-3 bg-purple-600 text-white rounded-xl hover:bg-purple-700 transition-all duration-300 font-medium shadow-lg shadow-purple-900/50"
                             >
-                                <span className="relative z-10 flex items-center">Quero Contribuir</span>
+                                <span className="relative z-10 flex items-center ">Quero Contribuir</span>
                                 <span className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                            </a>
+                            </a> */}
                         </div>
                     </div>
                     <div className="mt-10 pt-8 text-center">
@@ -149,9 +142,10 @@ const App = () => {
             <Layout>
                 <Routes>
                     {/* <Route path="/" element={<Home />} /> */}
+                    <Route path="/" element={<Home />} />
                     <Route path="/vn" element={<Home />} />
-                    <Route path="vn/traducoes" element={<Translations />} />
-                    <Route path="vn/creditos" element={<Credits />} />
+                    <Route path="/traducoes" element={<Translations />} />
+                    <Route path="/creditos" element={<Credits />} />
                 </Routes>
             </Layout>
         </Router>

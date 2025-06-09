@@ -19,7 +19,7 @@ const Header = () => {
                     {/* Logo with Avatar */}
                     <div className="flex items-center space-x-3">
                         <NavLink
-                            to="/vn/"
+                            to="/"
                             className="text-xl md:text-2xl font-bold text-white hover:text-purple-400 transition-colors duration-200"
                         >
                             <img
@@ -32,7 +32,7 @@ const Header = () => {
                     {/* Navigation */}
                     <nav className="hidden md:flex items-center space-x-8">
                         <NavLink
-                            to="/vn/"
+                            to="/"
                             className={({ isActive }) =>
                                 isActive
                                     ? "text-white font-medium border-b-2 border-purple-500"
@@ -43,7 +43,7 @@ const Header = () => {
                             Início
                         </NavLink>
                         <NavLink
-                            to="vn/traducoes"
+                            to="/traducoes"
                             className={({ isActive }) =>
                                 isActive
                                     ? "text-white font-medium border-b-2 border-lime-500"
@@ -53,7 +53,7 @@ const Header = () => {
                             Traduções
                         </NavLink>
                         <NavLink
-                            to="vn/creditos"
+                            to="/creditos"
                             className={({ isActive }) =>
                                 isActive
                                     ? "text-white font-medium border-b-2 border-purple-500"

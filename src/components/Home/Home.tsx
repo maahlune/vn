@@ -43,7 +43,7 @@ const Home: React.FC = () => {
 
                                 <div className="flex flex-wrap gap-4">
                                     <NavLink
-                                        to="/vn/traducoes"
+                                        to="/traducoes"
                                         className="relative overflow-hidden group px-8 py-4 bg-purple-600 text-white rounded-xl hover:bg-purple-700 transition-all duration-300 font-medium text-lg shadow-lg shadow-purple-900/50"
                                     >
                                         <span className="relative z-10 flex items-center">
@@ -216,7 +216,7 @@ const Home: React.FC = () => {
                         </div>
                         <div className="mt-12 text-center">
                             <NavLink
-                                to="/vn/traducoes"
+                                to="/traducoes"
                                 className="relative overflow-hidden group inline-flex items-center px-8 py-4 bg-purple-600 text-white rounded-xl hover:bg-purple-700 transition-all duration-300 font-medium text-lg shadow-lg shadow-purple-900/50"
                             >
                                 <span className="relative z-10 flex items-center">
