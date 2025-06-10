@@ -181,8 +181,7 @@ const Home: React.FC = () => {
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                             {/* Adicionando decoração */}
-                            <div className="absolute -z-10 opacity-10 blur-3xl w-96 h-96 bg-purple-600/30 rounded-full top-1/4 -left-48"></div>
-
+                            <div className="absolute -z-10 opacity-10 blur-3xl w-96 h-96 bg-purple-600/30 rounded-full top-1/4 -left-48"></div>{" "}
                             <HomeCard
                                 title={translations[0].title}
                                 image={translations[0].image}

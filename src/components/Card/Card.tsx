@@ -125,9 +125,9 @@ const Card: React.FC<VNProps> = ({
             {/* Backdrop glow effect */}
             <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                 <div className={`absolute inset-0 bg-gradient-to-tr ${theme.glowColors} rounded-xl`}></div>
-            </div>
+            </div>{" "}
             {/* Card Image with Status Badge */}
-            <div className="overflow-hidden flex-shrink-0 relative" style={{ aspectRatio: "16/9" }}>
+            <div className="overflow-hidden flex-shrink-0 relative" style={{ aspectRatio: "920/430" }}>
                 <img
                     src={image}
                     alt={title}

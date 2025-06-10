@@ -14,22 +14,22 @@ const Translations: React.FC = () => {
             translation.genres.forEach((genre) => genres.add(genre));
         });
         return Array.from(genres).sort();
-    }, []);
-
-    // Filter translations based on search and filters
+    }, []); // Filter translations based on search and filters
     const filteredTranslations = useMemo(() => {
-        return translations.filter((translation) => {
-            const matchesSearch =
-                translation.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                translation.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                translation.translator.toLowerCase().includes(searchTerm.toLowerCase());
+        return translations
+            .filter((translation) => {
+                const matchesSearch =
+                    translation.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                    translation.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                    translation.translator.toLowerCase().includes(searchTerm.toLowerCase());
 
-            const matchesGenre = selectedGenre === "all" || translation.genres.includes(selectedGenre);
+                const matchesGenre = selectedGenre === "all" || translation.genres.includes(selectedGenre);
 
-            const matchesStatus = selectedStatus === "all" || translation.status === selectedStatus;
+                const matchesStatus = selectedStatus === "all" || translation.status === selectedStatus;
 
-            return matchesSearch && matchesGenre && matchesStatus;
-        });
+                return matchesSearch && matchesGenre && matchesStatus;
+            })
+            .sort((a, b) => a.title.localeCompare(b.title, "pt-BR", { sensitivity: "base" }));
     }, [searchTerm, selectedGenre, selectedStatus]);
     return (
         <div className="min-h-screen bg-neutral-900">
