@@ -41,6 +41,14 @@ const HomeCard: React.FC<VNProps> = ({
         }
     };
 
+    // Helper function to get specific genre colors
+    const getGenreColor = (genre: string) => {
+        if (genre === "Adulto") {
+            return "bg-red-600/90 text-red-100 border border-red-500/50 backdrop-blur-sm";
+        }
+        return "bg-purple-900/50 text-purple-200 border border-purple-700/50";
+    };
+
     return (
         <div className="group bg-neutral-800/80 backdrop-blur-md rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border border-neutral-700 flex flex-col h-full relative">
             {/* Backdrop glow effect */}
@@ -79,8 +87,7 @@ const HomeCard: React.FC<VNProps> = ({
                             <FaUserEdit className="text-purple-400 mr-2 flex-shrink-0" />
                             <span className="text-neutral-200 truncate">{translator}</span>
                         </div>
-                    )}
-
+                    )}{" "}
                     {/* Genres */}
                     {genres && genres.length > 0 && (
                         <div className="flex flex-wrap gap-1.5 mb-2">
@@ -89,7 +96,7 @@ const HomeCard: React.FC<VNProps> = ({
                                 {genres.slice(0, 3).map((genre, index) => (
                                     <span
                                         key={index}
-                                        className="bg-purple-900/50 text-purple-200 text-xs px-2 py-0.5 rounded-md border border-purple-700/50"
+                                        className={`${getGenreColor(genre)} text-xs px-2 py-0.5 rounded-md`}
                                     >
                                         {genre}
                                     </span>
@@ -100,7 +107,6 @@ const HomeCard: React.FC<VNProps> = ({
                             </div>
                         </div>
                     )}
-
                     {/* Platforms */}
                     {platforms && platforms.length > 0 && (
                         <div className="flex flex-wrap gap-1.5 mb-2">

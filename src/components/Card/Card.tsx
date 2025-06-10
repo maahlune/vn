@@ -9,7 +9,7 @@ interface VNProps {
     image: string;
     description: string;
     status: string;
-    translator?: string;
+    translator: string;
     genres?: string[];
     platforms?: string[];
     downloadLink?: string;
@@ -116,8 +116,15 @@ const Card: React.FC<VNProps> = ({
                 };
         }
     };
-
     const theme = getCardTheme();
+
+    // Helper function to get specific genre colors
+    const getGenreColor = (genre: string) => {
+        if (genre === "Adulto") {
+            return "bg-red-600/30 text-red-100 border border-red-500/30 backdrop-blur-sm";
+        }
+        return theme.tagColors.genres;
+    };
 
     return (
         <div className="group bg-neutral-800/80 backdrop-blur-md rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border border-neutral-700 flex flex-col h-full relative">
@@ -159,7 +166,7 @@ const Card: React.FC<VNProps> = ({
                             <FaUserEdit className={`${theme.iconColors.translator} mr-2 flex-shrink-0`} />
                             <span className="text-neutral-200 truncate">{translator}</span>
                         </div>
-                    )}
+                    )}{" "}
                     {/* Genres */}
                     {genres && genres.length > 0 && (
                         <div className="flex flex-wrap gap-1.5 mb-2">
@@ -168,7 +175,7 @@ const Card: React.FC<VNProps> = ({
                                 {genres.slice(0, 3).map((genre, index) => (
                                     <span
                                         key={index}
-                                        className={`${theme.tagColors.genres} text-xs px-2 py-0.5 rounded-md`}
+                                        className={`${getGenreColor(genre)} text-xs px-2 py-0.5 rounded-md`}
                                     >
                                         {genre}
                                     </span>

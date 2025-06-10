@@ -8,9 +8,7 @@ interface TranslatorStats {
     completedTranslations: number;
     inProgressTranslations: number;
     projects: string[];
-    description: string;
     website?: string;
-    specialization: string;
 }
 
 const Credits: React.FC = () => {
@@ -20,7 +18,6 @@ const Credits: React.FC = () => {
 
         translations.forEach((translation) => {
             const translatorName = translation.translator;
-
             if (!stats[translatorName]) {
                 stats[translatorName] = {
                     name: translatorName,
@@ -28,8 +25,6 @@ const Credits: React.FC = () => {
                     completedTranslations: 0,
                     inProgressTranslations: 0,
                     projects: [],
-                    description: "",
-                    specialization: "",
                 };
             }
 
@@ -41,61 +36,21 @@ const Credits: React.FC = () => {
             } else if (translation.status === "in-progress") {
                 stats[translatorName].inProgressTranslations++;
             }
-        });
+        }); // Add website information
+        const translatorWebsites: { [key: string]: string } = {
+            "VNX+": "https://vnx.uvnworks.com/",
+            "Zero Force": "https://zeroforcetranslations.wordpress.com/",
+            "Knox Translations": "https://knox.fansub.com.br",
+            "Taiyaki Club": "https://taiyakiclub.wordpress.com/",
+            "Meow Works": "https://meowworks.gitlab.io/",
+            "Hanabi Works": "https://hanabiworks.github.io/",
+            EroMangá: "https://eromangatranslations.blogspot.com/",
+        };
 
-        // Add detailed descriptions and specializations
-        const translatorDetails: { [key: string]: { description: string; website?: string; specialization: string } } =
-            {
-                "VNX+": {
-                    description:
-                        "O maior grupo de tradução de Visual Novels do Brasil, responsável por algumas das traduções mais icônicas da comunidade, incluindo Steins;Gate e toda a série Nekopara.",
-                    website: "https://vnx.uvnworks.com/",
-                    specialization: "Visual Novels mainstream e títulos populares",
-                },
-                "Zero Force": {
-                    description:
-                        "Grupo veterano especializado em traduções de alta qualidade, conhecido por trabalhos como Clannad, Narcissu e várias visual novels clássicas.",
-                    website: "https://zeroforcetranslations.wordpress.com/",
-                    specialization: "Clássicos e títulos emocionalmente intensos",
-                },
-                "Knox Translations": {
-                    description:
-                        "Especialistas em mystery novels complexas, responsáveis pela tradução da aclamada série Umineko When They Cry.",
-                    website: "https://knox.fansub.com.br",
-                    specialization: "Mystery novels e narrativas complexas",
-                },
-                "Taiyaki Club": {
-                    description:
-                        "Focados em visual novels da Key Corporation, trazendo experiências emocionais únicas como Planetarian e Kanon para o público brasileiro.",
-                    website: "https://taiyakiclub.wordpress.com/",
-                    specialization: "Visual novels da Key Corporation",
-                },
-                "Meow Works": {
-                    description:
-                        "Responsáveis por projetos ambiciosos como Rewrite, demonstrando dedicação a narrativas longas e complexas.",
-                    website: "https://meowworks.gitlab.io/",
-                    specialization: "Projetos de grande escala",
-                },
-                "Hanabi Works": {
-                    description:
-                        "Especialistas em adaptações de animes populares para PSP e projetos em desenvolvimento ativo, incluindo Tsukihime Remake.",
-                    website: "https://hanabiworks.github.io/",
-                    specialization: "Adaptações de anime e títulos para PSP",
-                },
-                EroMangá: {
-                    description:
-                        "Focados em visual novels de conteúdo adulto, oferecendo traduções especializadas para este nicho específico.",
-                    website: "https://eromangatranslations.blogspot.com/",
-                    specialization: "Visual novels de conteúdo adulto",
-                },
-            };
-
-        // Merge descriptions with stats
+        // Add websites to stats
         Object.keys(stats).forEach((translator) => {
-            if (translatorDetails[translator]) {
-                stats[translator].description = translatorDetails[translator].description;
-                stats[translator].website = translatorDetails[translator].website;
-                stats[translator].specialization = translatorDetails[translator].specialization;
+            if (translatorWebsites[translator]) {
+                stats[translator].website = translatorWebsites[translator];
             }
         });
 
@@ -198,13 +153,12 @@ const Credits: React.FC = () => {
                                 Cada tradutor aqui listado dedica horas incontáveis de trabalho voluntário para tornar
                                 visual novels acessíveis à comunidade brasileira
                             </p>
-                        </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        </div>{" "}
+                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                             {translatorStats.map((translator) => (
                                 <div
                                     key={translator.name}
-                                    className="group bg-neutral-800/80 backdrop-blur-md rounded-xl p-8 shadow-lg border border-neutral-700/50 hover:shadow-2xl transition-all duration-300 relative overflow-hidden"
+                                    className="group bg-neutral-800/80 backdrop-blur-md rounded-xl p-6 shadow-lg border border-neutral-700/50 hover:shadow-2xl transition-all duration-300 relative overflow-hidden text-center"
                                 >
                                     {/* Animated background glow */}
                                     <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
@@ -212,82 +166,49 @@ const Credits: React.FC = () => {
                                     </div>
 
                                     <div className="relative z-10">
-                                        {/* Header */}
-                                        <div className="flex items-start justify-between mb-4">
-                                            <div className="flex items-center space-x-3">
-                                                <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full flex items-center justify-center">
-                                                    <span className="text-white font-bold text-lg">
-                                                        {translator.name.charAt(0)}
-                                                    </span>
-                                                </div>
-                                                <div>
-                                                    <h3 className="text-xl font-bold text-white">{translator.name}</h3>
-                                                    <p className="text-sm text-purple-400">
-                                                        {translator.specialization}
-                                                    </p>
-                                                </div>
-                                            </div>
-
-                                            {translator.website && (
-                                                <a
-                                                    href={translator.website}
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                    className="text-neutral-400 hover:text-purple-400 transition-colors duration-200"
-                                                >
-                                                    <FaGlobe className="w-5 h-5" />
-                                                </a>
-                                            )}
+                                        {/* Avatar */}
+                                        <div className="w-16 h-16 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                                            <span className="text-white font-bold text-xl">
+                                                {translator.name.charAt(0)}
+                                            </span>
                                         </div>
 
-                                        {/* Description */}
-                                        <p className="text-neutral-300 mb-6 leading-relaxed text-sm">
-                                            {translator.description}
-                                        </p>
+                                        {/* Name */}
+                                        <h3 className="text-lg font-bold text-white mb-3">{translator.name}</h3>
 
                                         {/* Stats */}
-                                        <div className="grid grid-cols-3 gap-4 mb-6">
+                                        <div className="grid grid-cols-3 gap-2 mb-4">
                                             <div className="text-center">
-                                                <div className="text-2xl font-bold text-purple-400">
+                                                <div className="text-lg font-bold text-purple-400">
                                                     {translator.totalTranslations}
                                                 </div>
                                                 <div className="text-xs text-neutral-400">Total</div>
                                             </div>
                                             <div className="text-center">
-                                                <div className="text-2xl font-bold text-green-400">
+                                                <div className="text-lg font-bold text-green-400">
                                                     {translator.completedTranslations}
                                                 </div>
                                                 <div className="text-xs text-neutral-400">Completas</div>
                                             </div>
                                             <div className="text-center">
-                                                <div className="text-2xl font-bold text-yellow-400">
+                                                <div className="text-lg font-bold text-yellow-400">
                                                     {translator.inProgressTranslations}
                                                 </div>
-                                                <div className="text-xs text-neutral-400">Em Progresso</div>
+                                                <div className="text-xs text-neutral-400">Progresso</div>
                                             </div>
                                         </div>
 
-                                        {/* Popular Projects */}
-                                        <div>
-                                            <h4 className="text-sm font-medium text-neutral-200 mb-2">
-                                                Projetos Principais:
-                                            </h4>
-                                            <div className="flex flex-wrap gap-2">
-                                                {translator.projects.slice(0, 3).map((project, idx) => (
-                                                    <span
-                                                        key={idx}
-                                                        className="bg-purple-900/50 text-purple-200 text-xs px-3 py-1 rounded-full border border-purple-700/50"
-                                                    >
-                                                        {project}
-                                                    </span>
-                                                ))}
-                                                {translator.projects.length > 3 && (
-                                                    <span className="text-xs text-neutral-400 px-2 py-1">
-                                                        +{translator.projects.length - 3} mais
-                                                    </span>
-                                                )}
-                                            </div>
-                                        </div>
+                                        {/* Website Link */}
+                                        {translator.website && (
+                                            <a
+                                                href={translator.website}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="inline-flex items-center justify-center w-8 h-8 bg-purple-600/20 text-purple-400 hover:bg-purple-600/40 hover:text-purple-300 rounded-full transition-all duration-200"
+                                            >
+                                                <FaGlobe className="w-4 h-4" />
+                                            </a>
+                                        )}
                                     </div>
                                 </div>
                             ))}
