@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router";
 import HomeCard from "../HomeCard/HomeCard";
 import { translations } from "../../assets/data";
@@ -7,13 +7,25 @@ import { FaBookReader, FaUsers, FaLightbulb } from "react-icons/fa";
 import { MdKeyboardArrowRight, MdKeyboardArrowDown } from "react-icons/md";
 
 const Home: React.FC = () => {
+    const [wallpaperIndex] = useState<number>(() => Math.floor(Math.random() * 16) + 1);
+    const [avatarIndex] = useState<number>(() => Math.floor(Math.random() * 6) + 1);
+    const [randomIndexes] = useState<number[]>(() => [
+        Math.floor(Math.random() * translations.length),
+        Math.floor(Math.random() * translations.length),
+        Math.floor(Math.random() * translations.length)
+    ]);
     return (
         <div className="min-h-screen bg-neutral-900">
             {/* Hero Section */}
             <section className="relative h-[90vh] flex items-center overflow-hidden">
                 {/* Animated Background */}
                 <div className="absolute inset-0 z-0">
-                    <div className="absolute inset-0 bg-[url('https://www.portallos.com.br/wp-content/gallery/wallpapers/1024x768_586.jpg')] bg-cover bg-center bg-fixed opacity-40"></div>
+                    <div
+                        className="absolute inset-0 bg-cover bg-center bg-fixed opacity-40"
+                        style={{
+                            backgroundImage: `url('vn/images/wallpaper${wallpaperIndex}.webp')`,
+                        }}
+                    ></div>
                     <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/80 to-transparent"></div>
                 </div>
 
@@ -44,13 +56,12 @@ const Home: React.FC = () => {
                                 <div className="flex flex-wrap gap-4">
                                     <NavLink
                                         to="/traducoes"
-                                        className="relative overflow-hidden group px-8 py-4 bg-purple-600 text-white rounded-xl hover:bg-purple-700 transition-all duration-300 font-medium text-lg shadow-lg shadow-purple-900/50"
+                                        className="relative overflow-hidden group px-8 py-4 bg-purple-600 text-white rounded-xl hover:bg-purple-700 transition-all duration-300 font-medium text-lg"
                                     >
                                         <span className="relative z-10 flex items-center">
                                             Ver Traduções
                                             <MdKeyboardArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
                                         </span>
-                                        <span className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                                     </NavLink>
                                 </div>
                             </div>
@@ -60,10 +71,15 @@ const Home: React.FC = () => {
                                 <div className="absolute w-64 h-64 rounded-lg bg-neutral-800/50 backdrop-blur-sm border border-neutral-700/50 shadow-2xl transform rotate-6 -translate-x-1/4"></div>
                                 <div className="absolute w-64 h-64 rounded-lg bg-purple-900/30 backdrop-blur-sm border border-purple-700/50 shadow-2xl transform -rotate-3 translate-x-1/4 translate-y-12"></div>
                                 <div className="relative w-64 h-64 rounded-lg bg-neutral-800/80 backdrop-blur-md border border-neutral-700 shadow-2xl overflow-hidden">
-                                    <div className="absolute inset-0 bg-[url('https://sidearc.com/wp-content/uploads/2016/02/steinsgate4-e1456745446985-1088x300.jpg')] bg-cover bg-center opacity-60"></div>
+                                    <div
+                                        className="absolute inset-0 bg-cover bg-center opacity-60"
+                                        style={{
+                                            backgroundImage: `url('vn/images/avatar${avatarIndex}.gif')`,
+                                        }}
+                                    ></div>
                                     <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 to-transparent"></div>
                                     <div className="absolute bottom-0 left-0 right-0 p-4">
-                                        <div className="w-20 h-1 bg-purple-500 mb-2"></div>
+                                        <div className="w-10 h-1 bg-purple-500/80 mb-2 rounded-lg"></div>
                                         <p className="text-sm text-white font-medium">
                                             Experimente mundos ricos em narrativas
                                         </p>
@@ -76,7 +92,7 @@ const Home: React.FC = () => {
 
                 {/* Scroll Indicator */}
                 <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce">
-                    <p className="text-neutral-400 text-sm mb">Explorar</p>
+                    {/* <p className="text-neutral-400 text-sm mb">Explorar</p> */}
                     <MdKeyboardArrowDown className="w-6 h-6 text-purple-500" />
                 </div>
             </section>
@@ -101,7 +117,7 @@ const Home: React.FC = () => {
                                     <div>
                                         <h3 className="text-xl font-bold mb-3 text-white">Nossa Missão</h3>
                                         <p className="text-neutral-300 leading-relaxed">
-                                            O MaahLune VN nasceu da paixão por visual novels e do desejo de tornar essas
+                                            A Lune VNs nasceu da paixão por visual novels e do desejo de tornar essas
                                             experiências únicas acessíveis para a comunidade brasileira. Centralizamos e
                                             organizamos as melhores traduções feitas por fãs, facilitando o acesso a
                                             histórias incríveis.
@@ -172,7 +188,7 @@ const Home: React.FC = () => {
                         {" "}
                         <div className="text-center mb-12">
                             <h2 className="text-3xl font-bold text-white inline-block relative">
-                                Traduções em Destaque
+                                Traduções Aleatórias
                                 <span className="absolute top-11 left-0 w-full h-0.5 bg-pink-500 transform -translate-y-1"></span>
                             </h2>
                             <p className="text-neutral-400 mt-4 max-w-2xl mx-auto">
@@ -183,34 +199,34 @@ const Home: React.FC = () => {
                             {/* Adicionando decoração */}
                             <div className="absolute -z-10 opacity-10 blur-3xl w-96 h-96 bg-purple-600/30 rounded-full top-1/4 -left-48"></div>{" "}
                             <HomeCard
-                                title={translations[0].title}
-                                image={translations[0].image}
-                                description={translations[0].description}
-                                status={translations[0].status}
-                                translator={translations[0].translator}
-                                genres={translations[0].genres}
-                                platforms={translations[0].platforms}
-                                downloadLink={translations[0].downloadLink}
+                                title={translations[randomIndexes[0]].title}
+                                image={translations[randomIndexes[0]].image}
+                                description={translations[randomIndexes[0]].description}
+                                status={translations[randomIndexes[0]].status}
+                                translator={translations[randomIndexes[0]].translator}
+                                genres={translations[randomIndexes[0]].genres}
+                                platforms={translations[randomIndexes[0]].platforms}
+                                downloadLink={translations[randomIndexes[0]].downloadLink}
                             />
                             <HomeCard
-                                title={translations[1].title}
-                                image={translations[1].image}
-                                description={translations[1].description}
-                                status={translations[1].status}
-                                translator={translations[1].translator}
-                                genres={translations[1].genres}
-                                platforms={translations[1].platforms}
-                                downloadLink={translations[1].downloadLink}
+                                title={translations[randomIndexes[1]].title}
+                                image={translations[randomIndexes[1]].image}
+                                description={translations[randomIndexes[1]].description}
+                                status={translations[randomIndexes[1]].status}
+                                translator={translations[randomIndexes[1]].translator}
+                                genres={translations[randomIndexes[1]].genres}
+                                platforms={translations[randomIndexes[1]].platforms}
+                                downloadLink={translations[randomIndexes[1]].downloadLink}
                             />
                             <HomeCard
-                                title={translations[2].title}
-                                image={translations[2].image}
-                                description={translations[2].description}
-                                status={translations[2].status}
-                                translator={translations[2].translator}
-                                genres={translations[2].genres}
-                                platforms={translations[2].platforms}
-                                downloadLink={translations[2].downloadLink}
+                                title={translations[randomIndexes[2]].title}
+                                image={translations[randomIndexes[2]].image}
+                                description={translations[randomIndexes[2]].description}
+                                status={translations[randomIndexes[2]].status}
+                                translator={translations[randomIndexes[2]].translator}
+                                genres={translations[randomIndexes[2]].genres}
+                                platforms={translations[randomIndexes[2]].platforms}
+                                downloadLink={translations[randomIndexes[2]].downloadLink}
                             />
                         </div>
                         <div className="mt-12 text-center">

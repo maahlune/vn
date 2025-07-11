@@ -6,6 +6,7 @@ const Translations: React.FC = () => {
     const [searchTerm, setSearchTerm] = useState("");
     const [selectedGenre, setSelectedGenre] = useState("all");
     const [selectedStatus, setSelectedStatus] = useState("all");
+    const [wallpaperIndex] = useState<number>(() => Math.floor(Math.random() * 16) + 1);
 
     // Extract unique genres from all translations
     const allGenres = useMemo(() => {
@@ -37,7 +38,12 @@ const Translations: React.FC = () => {
             <section className="relative h-[60vh] flex items-center overflow-hidden">
                 {/* Animated Background */}
                 <div className="absolute inset-0 z-0">
-                    <div className="absolute inset-0 bg-[url('https://sidearc.com/wp-content/uploads/2016/02/steinsgate4-e1456745446985-1088x300.jpg')] bg-cover bg-center bg-fixed opacity-40"></div>
+                    <div
+                        className="absolute inset-0 bg-cover bg-center bg-fixed opacity-40"
+                        style={{
+                            backgroundImage: `url('vn/images/wallpaper${wallpaperIndex}.webp')`,
+                        }}
+                    ></div>
                     <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/80 to-transparent"></div>
                 </div>{" "}
                 <div className="container mx-auto px-6 relative z-10">

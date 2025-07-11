@@ -36,7 +36,7 @@ const Layout = ({ children }: LayoutProps) => {
                         <div className="bg-neutral-800/40 backdrop-blur-md p-6 rounded-xl border border-neutral-700 shadow-xl">
                             {" "}
                             <h3 className="text-xl font-bold mb-4 text-white inline-block relative">
-                                MaahLune VN
+                                Lune VNs
                                 <span className="absolute left-0 bottom-0 w-12 h-0.5 bg-purple-500"></span>
                             </h3>
                             <p className="text-neutral-300 mb-6 leading-relaxed">
@@ -121,7 +121,7 @@ const Layout = ({ children }: LayoutProps) => {
                     </div>
                     <div className="mt-10 pt-8 text-center">
                         <p className="text-neutral-300">
-                            © {new Date().getFullYear()} MaahLune VN - Todas as traduções pertencem aos seus respectivos
+                            © {new Date().getFullYear()} Lune VNs - Todas as traduções pertencem aos seus respectivos
                             tradutores
                         </p>
                         <p className="text-neutral-400 text-sm mt-3">
