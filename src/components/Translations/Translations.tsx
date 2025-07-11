@@ -41,7 +41,7 @@ const Translations: React.FC = () => {
                     <div
                         className="absolute inset-0 bg-cover bg-center bg-fixed opacity-40"
                         style={{
-                            backgroundImage: `url('/vn/images/wallpaper${wallpaperIndex}.webp')`,
+                            backgroundImage: `url('https://raw.githubusercontent.com/maahlune/vn/refs/heads/gh-pages/images/wallpaper${wallpaperIndex}.webp')`,
                         }}
                     ></div>
                     <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/80 to-transparent"></div>
